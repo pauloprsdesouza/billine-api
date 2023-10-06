@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Billine.Admin.Contracts.Products;
+using Billine.Admin.Domain.OrderItems;
 using Billine.Admin.Domain.Products;
 using Billine.Admin.Infrastructure.Database.DataModel.Products;
 
@@ -11,6 +12,8 @@ namespace Billine.Admin.Infrastructure.Mappers
         {
             CreateMap<ProductModel, Product>().ReverseMap();
             CreateMap<Product, ProductResponse>();
+
+            CreateMap<OrderItem, Product>();
         }
     }
 }

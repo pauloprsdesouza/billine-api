@@ -4,7 +4,8 @@ namespace Billine.Admin.Domain.Products
 {
     public class Product
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
+        public string ExternalId { get; set; }
         public string CompanyCNPJ { get; set; }
         public string CompanyName { get; set; }
         public string Description { get; set; }

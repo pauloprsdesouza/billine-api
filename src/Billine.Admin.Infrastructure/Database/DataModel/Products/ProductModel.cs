@@ -1,14 +1,16 @@
 ﻿using Billine.Admin.Domain.Products;
 using Billine.Admin.Infrastructure.Database.DataModel.BaseModels;
 using EfficientDynamoDb.Attributes;
-using System;
 
 namespace Billine.Admin.Infrastructure.Database.DataModel.Products
 {
     public class ProductModel : BaseModel
     {
         [DynamoDbProperty("Id")]
-        public Guid Id { get; set; }
+        public string Id { get; set; }
+
+        [DynamoDbProperty("Id")]
+        public string ExternalId { get; set; }
 
         [DynamoDbProperty("CompanyCNPJ")]
         public string CompanyCNPJ { get; set; }

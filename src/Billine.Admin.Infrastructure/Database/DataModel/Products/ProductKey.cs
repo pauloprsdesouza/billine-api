@@ -5,10 +5,10 @@ namespace Billine.Admin.Infrastructure.Database.DataModel.Products
 {
     public class ProductKey : BaseKey<ProductModel>
     {
-        public ProductKey(string name, DateTimeOffset createdAt)
+        public ProductKey(string description, DateTimeOffset createdAt)
         {
             PK = $"PRODUCT";
-            SK = $"NAME${name}#DATE#{createdAt}";
+            SK = $"DESCRIPTION#{description}#DATE#{createdAt}";
         }
     }
 }
