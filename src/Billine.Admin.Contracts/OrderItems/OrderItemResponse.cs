@@ -5,7 +5,7 @@ namespace Billine.Admin.Contracts.OrderItems
 {
     public class OrderItemResponse
     {
-        public Guid ProductId { get; set; }
+        public string Description { get; set; }
         public string ExternalId { get; set; }
         public decimal Quantity { get; set; }
         public UnityMeasure UnityMeasure { get; set; }

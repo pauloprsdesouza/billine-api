@@ -1,5 +1,4 @@
-﻿using Billine.Admin.Domain.OrderItems;
-using Billine.Admin.Infrastructure.Database.DataModel.BaseModels;
+﻿using Billine.Admin.Infrastructure.Database.DataModel.BaseModels;
 using Billine.Admin.Infrastructure.Database.DataModel.OrderItems;
 using EfficientDynamoDb.Attributes;
 using System;
@@ -9,8 +8,8 @@ namespace Billine.Admin.Infrastructure.Database.DataModel.Orders
 {
     public class OrderModel : BaseModel
     {
-        [DynamoDbProperty("Id")]
-        public string Id { get; set; }
+        [DynamoDbProperty("QrCodeId")]
+        public string QrCodeId { get; set; }
 
         [DynamoDbProperty("UserId")]
         public Guid UserId { get; set; }

@@ -52,7 +52,7 @@ namespace Billine.Admin.Infrastructure.Database.DataModel.Orders
         public async Task<List<Order>> GetByLoggedUser(Guid userId)
         {
             var orderKey = new OrderKey(userId, default);
-            var model = await _dbContext.Query<CompanyModel>().WithKeyExpression(cond => cond.On(item => item.PK).EqualTo(orderKey.PK)).ToListAsync();
+            var model = await _dbContext.Query<OrderModel>().WithKeyExpression(cond => cond.On(item => item.PK).EqualTo(orderKey.PK)).ToListAsync();
 
             return _mapper.Map<List<Order>>(model);
         }

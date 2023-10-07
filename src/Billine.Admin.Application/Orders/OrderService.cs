@@ -14,16 +14,14 @@ namespace Billine.Admin.Application.Orders
     {
         private readonly IOrderRepository _orderRepository;
         private readonly ICompanyRepository _companyRepository;
-        private readonly IProductRepository _productRepository;
         private readonly ISefazProvider _sefazProvider;
         private readonly IMapper _mapper;
 
-        public OrderService(IOrderRepository orderRepository, ISefazProvider sefazProvider, ICompanyRepository companyRepository, IProductRepository productRepository, IMapper mapper)
+        public OrderService(IOrderRepository orderRepository, ISefazProvider sefazProvider, ICompanyRepository companyRepository, IMapper mapper)
         {
             _orderRepository = orderRepository;
             _sefazProvider = sefazProvider;
             _companyRepository = companyRepository;
-            _productRepository = productRepository;
             _mapper = mapper;
         }
 
@@ -48,15 +46,6 @@ namespace Billine.Admin.Application.Orders
                 };
 
                 await _companyRepository.Create(company);
-            }
-
-            var externalIds = order.Items.Select(x => x.ExternalId).ToList();
-            var products = await _productRepository.GetByExternalIds(externalIds);
-
-            if (!products.Any())
-            {
-                var productsToRegister = _mapper.Map<List<Product>>(order.Items.Where(x => !products.Select(y => y.ExternalId).Contains(x.ExternalId)).ToList().Distinct());
-                await _productRepository.BatchWrite(productsToRegister);
             }
 
             order.QrCodeId = qrCodeId;
