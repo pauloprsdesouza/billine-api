@@ -18,6 +18,7 @@
     <PackageReference Include="Amazon.Lambda.Core" Version="2.1.0" />
     <PackageReference Include="Amazon.Lambda.Logging.AspNetCore" Version="3.1.0" />
     <PackageReference Include="AWSToolsMessagePack" Version="1.0.4" />
+    <PackageReference Include="EfficientDynamoDb.Credentials.AWSSDK" Version="0.9.3" />
   </ItemGroup>
 
   <ItemGroup>

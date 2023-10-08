@@ -17,6 +17,10 @@ Parameters:
   JwtSecret:
     Type: String
     Description: Set secret token JWT
+  
+  AdminApiBaseUrl:
+    Type: String
+    Description: Set sefaz baseUrl
 
 Mappings:
   StageNameMap:
@@ -51,6 +55,7 @@ Resources:
         Variables:
           ASPNETCORE_ENVIRONMENT: !Ref Environment
           ASPNETCORE_JWT__Secret: !Ref JwtSecret
+          ASPNETCORE_AdminApi__BaseUrl: !Ref AdminApiBaseUrl
           ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: true
           ASPNETCORE_PATH_BASE: !FindInMap [EnvironmentToPathBaseMap, !Ref Environment, PathBase]
           ASPNETCORE_Logging__IncludeLogLevel: true

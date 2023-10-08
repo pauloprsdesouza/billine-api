@@ -23,4 +23,6 @@ aws cloudformation deploy \
   --stack-name billine-agenda \
   --template-file $basedir/dist/deploy.yaml \
   --parameter-overrides Environment=Development JwtSecret=87c10446-aa6a-4df3-8615-d4302cd205fb \
+  --parameter-overrides Environment=Development AdminApiBaseUrl=http://www.nfce.se.gov.br/portal/qrcode.jsp \
+
   --capabilities CAPABILITY_IAM \
